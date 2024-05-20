@@ -35,6 +35,7 @@ const SliderMarker = () => {
                 sx={{
                     display: 'flex',
                     justifyContent: 'space-between',
+                    margin: '0 0 1rem 0',
                     width: '100%',
                 }}
             >
