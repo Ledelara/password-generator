@@ -30,7 +30,7 @@ const Strength = (props: StrengthProps) => {
                 }}
                 color= '#7D7B8C'
             >
-                Força
+                Segurança
             </Typography>
             <Box
                 sx={{
