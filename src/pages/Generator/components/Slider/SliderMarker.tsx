@@ -1,4 +1,4 @@
-import { Box, Slider } from '@mui/material'
+import { Box, Slider, Typography } from '@mui/material'
 import { useState } from 'react'
 import { Description } from '@/pages/components/StyledComponents/styled'
 
@@ -25,7 +25,7 @@ const SliderMarker = () => {
     return (
         <Box
             sx={{ 
-                width: '30%',
+                width: '80%',
                 display: 'flex',
                 flexDirection: 'column',
                 alignItems: 'center',
@@ -39,8 +39,18 @@ const SliderMarker = () => {
                     width: '100%',
                 }}
             >
-                <Description>Quantidade de caracteres</Description>
-                <Description>{val}</Description>
+                <Typography
+                    variant="h6"
+                    color="white"
+                >
+                    Comprimento da senha
+                </Typography>
+                <Typography
+                    variant="h6"
+                    color="white"
+                >
+                    {val}
+                </Typography>
             </Box>
             <Slider 
                 value={val}
