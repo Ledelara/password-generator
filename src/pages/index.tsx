@@ -1,7 +1,6 @@
 import Head from "next/head"
 import styles from "../styles/Home.module.css"
 import { Inter } from "next/font/google"
-import SliderMarker from "./Generator/components/Slider/SliderMarker"
 import Generator from "./Generator/Generator"
 
 const inter = Inter({ subsets: ["latin"] })
