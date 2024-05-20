@@ -18,29 +18,41 @@ const Checkers = (props: CheckersProps) => {
                 display: 'flex',
                 flexDirection: 'column',
                 alignItems: 'flex-start',
-                width: '30%',
+                width: '80%',
                 margin: '0 auto',
             }}
         >
             <FormControlLabel
                 control={<Checkbox checked={includeUppercase} />}
                 label="Incluir letras maiúsculas"
-                sx={{ alignSelf: 'flex-start' }}
+                sx={{ 
+                    alignSelf: 'flex-start',
+                    color: 'white'
+                }}
             />
             <FormControlLabel
                 control={<Checkbox checked={includeLowercase} />}
                 label="Incluir letras minúsculas"
-                sx={{ alignSelf: 'flex-start' }}
+                sx={{ 
+                    alignSelf: 'flex-start',
+                    color: 'white'
+                }}
             />
             <FormControlLabel
                 control={<Checkbox checked={includeNumbers} />}
                 label="Incluir números"
-                sx={{ alignSelf: 'flex-start' }}
+                sx={{ 
+                    alignSelf: 'flex-start',
+                    color: 'white'
+                }}
             />
             <FormControlLabel
                 control={<Checkbox checked={includeSymbols} />}
                 label="Incluir símbolos"
-                sx={{ alignSelf: 'flex-start' }}
+                sx={{ 
+                    alignSelf: 'flex-start',
+                    color: 'white'
+                }}
             />
         </Box>
     )
