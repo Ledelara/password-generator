@@ -1,6 +1,5 @@
 import { Box, Slider, Typography } from '@mui/material'
 import { useState } from 'react'
-import { Description } from '@/pages/components/StyledComponents/styled'
 
 const Max = 20
 const Min = 0
