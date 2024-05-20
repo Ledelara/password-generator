@@ -12,11 +12,12 @@ const Strength = (props: StrengthProps) => {
 
     return (
         <Box
+            mt={2}
             sx={{
                 display: 'flex',
                 justifyContent: 'space-between',
                 alignItems: 'center',
-                width: '30%',
+                width: '80%',
                 margin: '0 auto',
                 padding: '1rem',
                 backgroundColor: '#131218'
@@ -24,7 +25,10 @@ const Strength = (props: StrengthProps) => {
         >
             <Typography
                 variant="h6"
-                sx={{ textTransform: 'uppercase' }}
+                sx={{ 
+                    textTransform: 'uppercase'
+                }}
+                color= '#7D7B8C'
             >
                 Força
             </Typography>
