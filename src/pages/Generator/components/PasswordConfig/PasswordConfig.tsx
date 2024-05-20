@@ -12,10 +12,11 @@ type PasswordConfigProps = {
     includeNumbers: boolean
     includeSymbols: boolean
     strength: 'low' | 'medium' | 'high'
+    generatedPassword?: string
 }
 
 const PasswordConfig = (props: PasswordConfigProps) => {
-    const { onClick, includeUppercase, includeLowercase, includeNumbers, includeSymbols, strength } = props
+    const { onClick, includeUppercase, includeLowercase, includeNumbers, includeSymbols, strength, generatedPassword } = props
   return (
     <Card
           sx={{

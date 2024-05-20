@@ -2,7 +2,13 @@ import { FileCopyOutlined } from '@mui/icons-material'
 import { Button, Card, Typography } from '@mui/material'
 import React from 'react'
 
-const Password = () => {
+type PasswordProps = {
+  generatedPassword?: string
+}
+
+const Password = (props: PasswordProps) => {
+  const { generatedPassword } = props
+
   return (
     <Card
           sx={{
@@ -21,7 +27,7 @@ const Password = () => {
                 padding: '0 1rem',
             }}
         >
-            S3nh4!
+            {generatedPassword ? generatedPassword : 'S3nH4!'}
         </Typography>
         <Button 
             startIcon={
