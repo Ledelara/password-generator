@@ -19,7 +19,7 @@ const Generate = (props: GenerateProps) => {
                 display: 'flex',
                 justifyContent: 'center',
                 alignItems: 'center',
-                width: '80%',
+                width: '85%',
                 margin: '0 auto',
                 padding: '1rem',
                 backgroundColor: '#A4FFAF',
