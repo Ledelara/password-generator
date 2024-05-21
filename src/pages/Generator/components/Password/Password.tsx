@@ -1,5 +1,5 @@
 import { FileCopyOutlined } from '@mui/icons-material'
-import { Button, Card, Tooltip, Typography } from '@mui/material'
+import { Button, Card, Tooltip, Typography, useMediaQuery, useTheme } from '@mui/material'
 import { useState } from 'react'
 
 type PasswordProps = {
@@ -9,6 +9,9 @@ type PasswordProps = {
 const Password = (props: PasswordProps) => {
   const { generatedPassword } = props
   const [tooltipOpen, setTooltipOpen] = useState<boolean>(false)
+
+  const theme = useTheme()
+  const isSmallScreen = useMediaQuery(theme.breakpoints.down('sm'))
 
   const handleCopy = () => {
     if (generatedPassword) {
@@ -30,17 +33,21 @@ const Password = (props: PasswordProps) => {
       sx={{
         display: 'flex',
         backgroundColor: '#1a1a1a',
-        width: '30%',
-        justifyContent: 'space-between',
+        width: isSmallScreen ? '90%' : '30%',
+        flexDirection: isSmallScreen ? 'column' : 'row',
+        justifyContent: isSmallScreen ? 'center' : 'space-between',
         alignItems: 'center',
         padding: '1rem',
+        margin: isSmallScreen ? '1rem auto' : '0 auto',
       }}
     >
       <Typography
         variant='h4'
         sx={{
           color: '#7D7B8C',
-          padding: '0 1rem',
+          padding: isSmallScreen ? '0.5rem 0' : '0 1rem',
+          wordBreak: 'break-all',
+          textAlign: isSmallScreen ? 'center' : 'left',
         }}
       >
         {generatedPassword ? generatedPassword : 'S3nH4!'}
@@ -58,6 +65,7 @@ const Password = (props: PasswordProps) => {
             '&:hover': {
               backgroundColor: 'transparent',
             },
+            marginTop: isSmallScreen ? '0.5rem' : '0',
           }}
           onClick={handleCopy}
           startIcon={
