@@ -1,26 +1,63 @@
 import { Card } from '@mui/material'
-import React from 'react'
 import Checkers from '../Checkers/Checkers'
 import Generate from '../Generate/Generate'
 import SliderMarker from '../Slider/SliderMarker'
 import Strength from '../Strength/Strength'
 import Password from '../Password/Password'
+import { useState } from 'react'
 
-type PasswordConfigProps = {
-    onClick: () => void
-    includeUppercase: boolean
-    includeLowercase: boolean
-    includeNumbers: boolean
-    includeSymbols: boolean
-    strength: 'low' | 'medium' | 'high'
-    generatedPassword?: string
-}
+const PasswordConfig = () => {
+  const [password, setPassword] = useState<string>('')
+  const [length, setLength] = useState<number>(0)
+  const [includeUppercase, setIncludeUppercase] = useState<boolean>(false)
+  const [includeLowercase, setIncludeLowercase] = useState<boolean>(false)
+  const [includeNumbers, setIncludeNumbers] = useState<boolean>(false)
+  const [includeSymbols, setIncludeSymbols] = useState<boolean>(false)
 
-const PasswordConfig = (props: PasswordConfigProps) => {
-    const { onClick, includeUppercase, includeLowercase, includeNumbers, includeSymbols, strength, generatedPassword } = props
+  const generatePassword = () => {
+    const upperCaseLetters = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ'
+    const lowerCaseLetters = 'abcdefghijklmnopqrstuvwxyz'
+    const numbers = '0123456789'
+    const symbols = '!@#$%^&*()_+[]{}|;:,.<>?'
+
+    let characterPool = ''
+
+    if (includeUppercase) {
+      characterPool += upperCaseLetters
+    }
+    if (includeLowercase) {
+      characterPool += lowerCaseLetters
+    }
+    if (includeNumbers) {
+      characterPool += numbers
+    }
+    if (includeSymbols) {
+      characterPool += symbols
+    }
+
+    if (characterPool === '') {
+      console.log('Nenhum tipo de caractere foi selecionado')
+      return
+    }
+
+    if (length <= 0) {
+      console.log('O comprimento da senha deve ser maior que zero')
+      return
+    }
+
+    let generatedPassword = ''
+    for (let i = 0; i < length; i++) {
+      const randomIndex = Math.floor(Math.random() * characterPool.length)
+      generatedPassword += characterPool[randomIndex]
+    }
+
+    setPassword(generatedPassword)
+    console.log('Senha gerada: ', generatedPassword)
+  }
+
   return (
     <>
-      <Password />
+      <Password generatedPassword={password} />
       <Card
         sx={{
           display: 'flex',
@@ -32,18 +69,18 @@ const PasswordConfig = (props: PasswordConfigProps) => {
           padding: '2rem 1rem',
         }}
       >
-        <SliderMarker />
-        <Checkers 
-          includeUppercase={includeUppercase}
-          includeLowercase={includeLowercase}
-          includeNumbers={includeNumbers}
-          includeSymbols={includeSymbols}
+        <SliderMarker value={length} onChange={(val) => setLength(val)} />
+        <Checkers
+          includeUppercase={() => setIncludeUppercase(!includeUppercase)}
+          includeLowercase={() => setIncludeLowercase(!includeLowercase)}
+          includeNumbers={() => setIncludeNumbers(!includeNumbers)}
+          includeSymbols={() => setIncludeSymbols(!includeSymbols)}
         />
         <Strength 
-          strength={strength}
+          strength={'low'}
         />
         <Generate 
-          onClick={onClick}
+          onClick={generatePassword}
         />
       </Card>
     </>
