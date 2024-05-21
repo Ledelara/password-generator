@@ -9,6 +9,7 @@ import { useState } from 'react'
 const PasswordConfig = () => {
   const [password, setPassword] = useState<string>('')
   const [length, setLength] = useState<number>(0)
+  const [strength, setStrength] = useState<'low' | 'medium' | 'high'>('low')
   const [includeUppercase, setIncludeUppercase] = useState<boolean>(false)
   const [includeLowercase, setIncludeLowercase] = useState<boolean>(false)
   const [includeNumbers, setIncludeNumbers] = useState<boolean>(false)
@@ -52,7 +53,14 @@ const PasswordConfig = () => {
     }
 
     setPassword(generatedPassword)
-    console.log('Senha gerada: ', generatedPassword)
+    
+    let securityLevel: 'low' | 'medium' | 'high' = 'low'
+    if (length>= 8 && length <= 12 && characterPool.length >= 3) {
+      securityLevel = 'medium'
+    } else if (length > 12 && characterPool.length >= 3) {
+      securityLevel = 'high'
+    }
+    setStrength(securityLevel)
   }
 
   return (
@@ -77,7 +85,7 @@ const PasswordConfig = () => {
           includeSymbols={() => setIncludeSymbols(!includeSymbols)}
         />
         <Strength 
-          strength={'low'}
+          strength={strength}
         />
         <Generate 
           onClick={generatePassword}
