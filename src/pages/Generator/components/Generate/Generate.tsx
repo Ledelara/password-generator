@@ -27,12 +27,9 @@ const Generate = (props: GenerateProps) => {
                     '&:hover': {
                         backgroundColor: '#A4FFAF',
                     },
-                    '@media (min-width:600px)': {
-                        width: '50%',
-                    },
-                    '@media (min-width:960px)': {
-                        width: '85%',
-                    },
+                    width: 'auto',
+                    minWidth: 0,
+                    flex: 1,
                 }}
                 endIcon={<ArrowForwardSharp />}
                 onClick={onClick}
