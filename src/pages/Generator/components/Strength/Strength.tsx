@@ -1,5 +1,5 @@
 import { CropPortraitOutlined } from '@mui/icons-material'
-import { Box, Typography } from '@mui/material'
+import { Box, Typography, useMediaQuery, useTheme } from '@mui/material'
 import React from 'react'
 
 type StrengthProps = {
@@ -10,6 +10,9 @@ const Strength = (props: StrengthProps) => {
     const { strength } = props
     const color = strength === 'low' ? 'error' : strength === 'medium' ? 'warning' : 'success'
 
+    const theme = useTheme()
+    const isSmallScreen = useMediaQuery(theme.breakpoints.down('sm'))
+
     return (
         <Box
             mt={2}
@@ -17,19 +20,21 @@ const Strength = (props: StrengthProps) => {
                 display: 'flex',
                 justifyContent: 'space-between',
                 alignItems: 'center',
-                width: '80%',
-                margin: '0 auto',
-                padding: '1rem',
+                width: isSmallScreen ? '100%' : '80%',
+                padding: isSmallScreen ? '0.5rem' : '1rem',
                 backgroundColor: '#131218',
                 borderRadius: '0.3rem',
+                flexDirection: isSmallScreen ? 'column' : 'row',
             }}
         >
             <Typography
                 variant="h6"
                 sx={{ 
-                    textTransform: 'uppercase'
+                    textTransform: 'uppercase',
+                    textAlign: isSmallScreen ? 'center' : 'left',
+                    marginBottom: isSmallScreen ? '0.5rem' : '0',
                 }}
-                color= '#7D7B8C'
+                color='#7D7B8C'
             >
                 Segurança
             </Typography>
