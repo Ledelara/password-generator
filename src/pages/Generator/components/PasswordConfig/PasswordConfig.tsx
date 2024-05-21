@@ -1,4 +1,4 @@
-import { Card } from '@mui/material'
+import { Card, useMediaQuery, useTheme } from '@mui/material'
 import Checkers from '../Checkers/Checkers'
 import Generate from '../Generate/Generate'
 import SliderMarker from '../Slider/SliderMarker'
@@ -17,6 +17,8 @@ const PasswordConfig = () => {
   const [includeSymbols, setIncludeSymbols] = useState<boolean>(false)
 
   const { showAlert } = useAlert()
+  const theme = useTheme()
+  const isSmallScreen = useMediaQuery(theme.breakpoints.down('sm'))
 
   const generatePassword = () => {
     const upperCaseLetters = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ'
@@ -49,7 +51,7 @@ const PasswordConfig = () => {
     setPassword(generatedPassword)
     
     let securityLevel: 'low' | 'medium' | 'high' = 'low'
-    if (length>= 8 && length <= 12 && characterPool.length >= 3) {
+    if (length >= 8 && length <= 12 && characterPool.length >= 3) {
       securityLevel = 'medium'
     } else if (length > 12 && characterPool.length >= 3) {
       securityLevel = 'high'
@@ -67,8 +69,8 @@ const PasswordConfig = () => {
           alignItems: 'center',
           justifyContent: 'center',
           backgroundColor: '#1a1a1a',
-          width: '30%',
-          padding: '2rem 1rem',
+          width: isSmallScreen ? '80%' : '30%',
+          padding: isSmallScreen ? '1rem' : '2rem 1rem',
         }}
       >
         <SliderMarker value={length} onChange={(val) => setLength(val)} />
