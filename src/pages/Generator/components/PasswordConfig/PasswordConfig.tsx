@@ -4,6 +4,7 @@ import Checkers from '../Checkers/Checkers'
 import Generate from '../Generate/Generate'
 import SliderMarker from '../Slider/SliderMarker'
 import Strength from '../Strength/Strength'
+import Password from '../Password/Password'
 
 type PasswordConfigProps = {
     onClick: () => void
@@ -19,6 +20,7 @@ const PasswordConfig = (props: PasswordConfigProps) => {
     const { onClick, includeUppercase, includeLowercase, includeNumbers, includeSymbols, strength, generatedPassword } = props
   return (
     <>
+      <Password />
       <Card
         sx={{
           display: 'flex',

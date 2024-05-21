@@ -9,7 +9,6 @@ const Generator = () => {
 
   return (
       <>
-        <Password />
         <PasswordConfig 
             onClick={() => {}}
             includeUppercase={handleIncludeUppercase()}
