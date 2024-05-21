@@ -3,10 +3,10 @@ import { Box } from '@mui/material'
 import React from 'react'
 
 type CheckersProps = {
-    includeUppercase: boolean
-    includeLowercase: boolean
-    includeNumbers: boolean
-    includeSymbols: boolean
+    includeUppercase: () => void
+    includeLowercase: () => void
+    includeNumbers: () => void
+    includeSymbols: () => void
 }
 
 const Checkers = (props: CheckersProps) => {
@@ -23,7 +23,7 @@ const Checkers = (props: CheckersProps) => {
             }}
         >
             <FormControlLabel
-                control={<Checkbox checked={includeUppercase} />}
+                control={<Checkbox onClick={includeUppercase} />}
                 label="Incluir letras maiúsculas"
                 sx={{ 
                     alignSelf: 'flex-start',
@@ -31,7 +31,7 @@ const Checkers = (props: CheckersProps) => {
                 }}
             />
             <FormControlLabel
-                control={<Checkbox checked={includeLowercase} />}
+                control={<Checkbox onClick={includeLowercase}/>}
                 label="Incluir letras minúsculas"
                 sx={{ 
                     alignSelf: 'flex-start',
@@ -39,7 +39,7 @@ const Checkers = (props: CheckersProps) => {
                 }}
             />
             <FormControlLabel
-                control={<Checkbox checked={includeNumbers} />}
+                control={<Checkbox onClick={includeNumbers}/>}
                 label="Incluir números"
                 sx={{ 
                     alignSelf: 'flex-start',
@@ -47,7 +47,7 @@ const Checkers = (props: CheckersProps) => {
                 }}
             />
             <FormControlLabel
-                control={<Checkbox checked={includeSymbols} />}
+                control={<Checkbox onClick={includeSymbols}/>}
                 label="Incluir símbolos"
                 sx={{ 
                     alignSelf: 'flex-start',
