@@ -23,7 +23,6 @@ const Generate = (props: GenerateProps) => {
                 margin: '0 auto',
                 padding: '1rem',
                 backgroundColor: '#A4FFAF',
-                borderRadius: '0',
                 color: '#1a1a1a',
                 '&:hover': {
                     backgroundColor: '#A4FFAF',

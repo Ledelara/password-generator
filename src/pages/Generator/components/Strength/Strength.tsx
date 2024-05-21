@@ -20,7 +20,8 @@ const Strength = (props: StrengthProps) => {
                 width: '80%',
                 margin: '0 auto',
                 padding: '1rem',
-                backgroundColor: '#131218'
+                backgroundColor: '#131218',
+                borderRadius: '0.3rem',
             }}
         >
             <Typography
