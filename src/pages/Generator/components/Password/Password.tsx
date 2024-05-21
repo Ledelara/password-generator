@@ -33,7 +33,7 @@ const Password = (props: PasswordProps) => {
       sx={{
         display: 'flex',
         backgroundColor: '#1a1a1a',
-        width: isSmallScreen ? '90%' : '30%',
+        width: isSmallScreen ? '80%' : '30%',
         flexDirection: isSmallScreen ? 'column' : 'row',
         justifyContent: isSmallScreen ? 'center' : 'space-between',
         alignItems: 'center',
