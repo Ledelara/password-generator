@@ -29,11 +29,18 @@ const Password = (props: PasswordProps) => {
     <Card
       sx={{
         display: 'flex',
-        backgroundColor: '#1a1a1a',
-        width: '30%',
         justifyContent: 'space-between',
         alignItems: 'center',
-        padding: '1rem',
+        backgroundColor: '#1a1a1a',
+        width: '80%',
+        maxWidth: '600px',
+        padding: '2rem 1rem',
+        '@media (min-width:600px)': {
+          width: '50%',
+        },
+        '@media (min-width:960px)': {
+          width: '30%',
+        },
       }}
     >
       <Typography

@@ -49,7 +49,7 @@ const PasswordConfig = () => {
     setPassword(generatedPassword)
     
     let securityLevel: 'low' | 'medium' | 'high' = 'low'
-    if (length>= 8 && length <= 12 && characterPool.length >= 3) {
+    if (length >= 8 && length <= 12 && characterPool.length >= 3) {
       securityLevel = 'medium'
     } else if (length > 12 && characterPool.length >= 3) {
       securityLevel = 'high'
@@ -67,8 +67,15 @@ const PasswordConfig = () => {
           alignItems: 'center',
           justifyContent: 'center',
           backgroundColor: '#1a1a1a',
-          width: '30%',
+          width: '80%',
+          maxWidth: '600px',
           padding: '2rem 1rem',
+          '@media (min-width:600px)': {
+            width: '50%',
+          },
+          '@media (min-width:960px)': {
+            width: '30%',
+          },
         }}
       >
         <SliderMarker value={length} onChange={(val) => setLength(val)} />

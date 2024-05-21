@@ -17,11 +17,15 @@ const Strength = (props: StrengthProps) => {
                 display: 'flex',
                 justifyContent: 'space-between',
                 alignItems: 'center',
-                width: '80%',
-                margin: '0 auto',
-                padding: '1rem',
+                padding: '1em',
                 backgroundColor: '#131218',
                 borderRadius: '0.3rem',
+                '@media (min-width:600px)': {
+                    width: '50%',
+                },
+                '@media (min-width:960px)': {
+                    width: '80%',
+                },
             }}
         >
             <Typography
@@ -36,7 +40,7 @@ const Strength = (props: StrengthProps) => {
             <Box
                 sx={{
                     display: 'flex',
-                    gap: '0.5rem',
+                    gap: '0.2rem',
                 }}
             >
                 <CropPortraitOutlined color={color} />
