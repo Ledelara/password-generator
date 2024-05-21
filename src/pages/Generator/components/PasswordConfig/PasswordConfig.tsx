@@ -5,6 +5,7 @@ import SliderMarker from '../Slider/SliderMarker'
 import Strength from '../Strength/Strength'
 import Password from '../Password/Password'
 import { useState } from 'react'
+import { useAlert } from '@/hooks/useAlert'
 
 const PasswordConfig = () => {
   const [password, setPassword] = useState<string>('')
@@ -14,6 +15,8 @@ const PasswordConfig = () => {
   const [includeLowercase, setIncludeLowercase] = useState<boolean>(false)
   const [includeNumbers, setIncludeNumbers] = useState<boolean>(false)
   const [includeSymbols, setIncludeSymbols] = useState<boolean>(false)
+
+  const { showAlert } = useAlert()
 
   const generatePassword = () => {
     const upperCaseLetters = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ'
@@ -37,12 +40,12 @@ const PasswordConfig = () => {
     }
 
     if (characterPool === '') {
-      console.log('Nenhum tipo de caractere foi selecionado')
+      showAlert('Selecione ao menos um tipo de caractere para gerar a senha', 'error')
       return
     }
 
     if (length <= 0) {
-      console.log('O comprimento da senha deve ser maior que zero')
+      showAlert('Selecione o número de caracteres para a senha', 'error')
       return
     }
 
