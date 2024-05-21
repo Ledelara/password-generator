@@ -16,6 +16,11 @@ const Generate = (props: GenerateProps) => {
         <Box 
             mt={2} 
             width='100%'
+            sx={{
+                display: 'flex',
+                justifyContent: 'center',
+                alignItems: 'center',
+            }}
         >
             <Button
                 sx={{
