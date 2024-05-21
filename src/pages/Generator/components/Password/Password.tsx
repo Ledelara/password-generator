@@ -54,13 +54,19 @@ const Password = (props: PasswordProps) => {
         placement="top"
       >
         <Button 
-        onClick={handleCopy}
-        startIcon={
-          <FileCopyOutlined 
-            sx={{ color: '#A4FFAF' }}
-          />
-        }
-      />
+          sx={{
+            '&:hover': {
+              backgroundColor: 'transparent',
+            },
+          }}
+          onClick={handleCopy}
+          startIcon={
+            <FileCopyOutlined 
+              sx={{ color: '#A4FFAF' }}
+            />
+          }
+          disableRipple
+        />
       </Tooltip>
     </Card>
   )
