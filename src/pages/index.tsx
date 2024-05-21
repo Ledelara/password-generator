@@ -1,5 +1,6 @@
 import Head from "next/head";
 import Generator from "./Generator/Generator";
+import { AlertPopUp } from "./components/AlertPopUp/AlertPopUp";
 
 export default function Home() {
   return (
@@ -29,6 +30,7 @@ export default function Home() {
         }}
       >
         <Generator />
+        <AlertPopUp />
       </main>
     </>
   );
