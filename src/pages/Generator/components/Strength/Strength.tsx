@@ -42,7 +42,7 @@ const Strength = (props: StrengthProps) => {
             <Box
                 sx={{
                     display: 'flex',
-                    gap: '0.5rem',
+                    gap: '0.5',
                 }}
             >
                 <CropPortraitOutlined color={color} />
