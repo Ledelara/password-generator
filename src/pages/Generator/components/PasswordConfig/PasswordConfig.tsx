@@ -18,31 +18,33 @@ type PasswordConfigProps = {
 const PasswordConfig = (props: PasswordConfigProps) => {
     const { onClick, includeUppercase, includeLowercase, includeNumbers, includeSymbols, strength, generatedPassword } = props
   return (
-    <Card
-          sx={{
-              display: 'flex',
-              flexDirection: 'column',
-              alignItems: 'center',
-              justifyContent: 'center',
-              backgroundColor: '#1a1a1a',
-              width: '30%',
-              padding: '2rem 1rem',
-          }}
-        >
-          <SliderMarker />
-          <Checkers 
-              includeUppercase={includeUppercase}
-              includeLowercase={includeLowercase}
-              includeNumbers={includeNumbers}
-              includeSymbols={includeSymbols}
-          />
-          <Strength 
-              strength={strength}
-          />
-          <Generate 
-              onClick={onClick}
-          />
-        </Card>
+    <>
+      <Card
+        sx={{
+          display: 'flex',
+          flexDirection: 'column',
+          alignItems: 'center',
+          justifyContent: 'center',
+          backgroundColor: '#1a1a1a',
+          width: '30%',
+          padding: '2rem 1rem',
+        }}
+      >
+        <SliderMarker />
+        <Checkers 
+          includeUppercase={includeUppercase}
+          includeLowercase={includeLowercase}
+          includeNumbers={includeNumbers}
+          includeSymbols={includeSymbols}
+        />
+        <Strength 
+          strength={strength}
+        />
+        <Generate 
+          onClick={onClick}
+        />
+      </Card>
+    </>
   )
 }
 
