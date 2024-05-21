@@ -21,7 +21,7 @@ const Strength = (props: StrengthProps) => {
                 justifyContent: 'space-between',
                 alignItems: 'center',
                 width: '100%',
-                maxWidth: isSmallScreen ? '100%' : '80%',
+                maxWidth: isSmallScreen ? '95%' : '80%',
                 padding: isSmallScreen ? '0.5rem' : '1rem',
                 backgroundColor: '#131218',
                 borderRadius: '0.3rem',
