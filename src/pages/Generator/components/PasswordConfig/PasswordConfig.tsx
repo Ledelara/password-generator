@@ -26,18 +26,10 @@ const PasswordConfig = () => {
 
     let characterPool = ''
 
-    if (includeUppercase) {
-      characterPool += upperCaseLetters
-    }
-    if (includeLowercase) {
-      characterPool += lowerCaseLetters
-    }
-    if (includeNumbers) {
-      characterPool += numbers
-    }
-    if (includeSymbols) {
-      characterPool += symbols
-    }
+    includeUppercase && (characterPool += upperCaseLetters)
+    includeLowercase && (characterPool += lowerCaseLetters)
+    includeNumbers && (characterPool += numbers)
+    includeSymbols && (characterPool += symbols)
 
     if (characterPool === '') {
       showAlert('Selecione ao menos um tipo de caractere para gerar a senha', 'error')
@@ -54,7 +46,6 @@ const PasswordConfig = () => {
       const randomIndex = Math.floor(Math.random() * characterPool.length)
       generatedPassword += characterPool[randomIndex]
     }
-
     setPassword(generatedPassword)
     
     let securityLevel: 'low' | 'medium' | 'high' = 'low'
